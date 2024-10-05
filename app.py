@@ -1,7 +1,7 @@
 import streamlit as st
 
 
-st.set_page_config(page_title="Chest Xray Prediction", 
+st.set_page_config(page_title="Chest Xray Tuberculosis Prediction", 
                    page_icon=":material/potted_plant:", 
                    layout="wide",
                    initial_sidebar_state="expanded",)
