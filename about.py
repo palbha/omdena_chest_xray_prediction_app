@@ -41,10 +41,10 @@ st.markdown('<p class="subheader">Introduction</p>', unsafe_allow_html=True)
 
 # Introduction Body
 st.markdown("""
-Welcome to the Chest X-ray Disease Detection platform! This application leverages advanced 
-Convolutional Neural Networks (CNNs) to assist healthcare professionals in diagnosing diseases 
-from chest X-rays, particularly focusing on detecting pneumonia, tuberculosis, and other lung-related abnormalities.
-Our goal is to improve diagnostic accuracy and provide insights to aid clinical decision-making.
+Welcome to the Chest X-ray Tuberculosis Detection platform! This application leverages advanced 
+Convolutional Neural Networks (CNNs) to assist healthcare professionals in diagnosing diseases
+from chest X-rays, particularly focusing on detecting Tuberculosis.
+Our goal is to improve diagnostic accuracy and provide  quick insights to aid clinical decision-making.
 """)
 
 # Project Description and Our Work Subheader
@@ -53,16 +53,16 @@ st.markdown('<p class="subheader">Project Description </p>', unsafe_allow_html=T
 # Project Description and Our Work Body
 st.markdown("""
 Chest X-rays are a widely used diagnostic tool, but interpreting them requires significant expertise.
-Our system is designed to automatically analyze chest X-ray images and detect signs of various diseases 
+Our system is designed to automatically analyze chest X-ray images and detect signs of Tuberculosis
 to assist radiologists and medical professionals. By using cutting-edge deep learning models like EfficientNet 
-and DenseNet, we aim to deliver accurate predictions and support in early detection
+and DenseNet, we aim to deliver accurate predictions and support in early detection of Tuberculosis
 """)
 
 # List of Crops
-st.markdown("""
-- **Penumonia**
-- **NA**
-""")
+#st.markdown("""
+#- **Penumonia**
+#- **NA**
+#""")
 
 st.markdown('<p class="subheader">Future Work</p>', unsafe_allow_html=True)
 
@@ -72,7 +72,7 @@ We are committed to continuously enhancing our application to better serve the H
 
 - **Expanding Chest Xray Database**: Adding support for more diseases.\n
 - **Develop Model Trainiing Tool** : Developing an intuitive UI to facilitate deep learning model training with labeled Chest Xray disease image data.\n           
-- **Cost-Sensitive Learning**: Prioritizing accurate detection of critical diseases by assigning higher\n
+- **Cost-Sensitive Learning**: Prioritizing accurate detection of additional critical diseases by assigning higher\n
   penalties to misclassifications with greater consequences. This can improve overall diagnostic accuracy and aid decision-making.\n
 - **Mobile Application**: Creating a mobile app version for on-the-go access and usability.\n
 - **Multilingual Support**: Providing support in various languages to cater to a global audience."
