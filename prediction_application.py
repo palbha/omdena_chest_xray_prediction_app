@@ -157,26 +157,26 @@ def display_guidelines(crop_name):
 def main():
     st.markdown('<p class="title">Diagnostics Application</p>', unsafe_allow_html=True)
 
-    crops_list = os.listdir(STATE_DICT_DIR)
-    crop_names = [crop_name.replace('_', ' ').title() for crop_name in crops_list]
-    crop_name = st.selectbox("Select Image for Disease Identification", crop_names, index=0)
+    # crops_list = os.listdir(STATE_DICT_DIR)
+    # crop_names = [crop_name.replace('_', ' ').title() for crop_name in crops_list]
+    # crop_name = st.selectbox("Select Image for Disease Identification", crop_names, index=0)
 
-    # Process the crop name for convenience.
-    crop_name_lower = crop_name.lower().replace(' ', '_')
+    # # Process the crop name for convenience.
+    # crop_name_lower = crop_name.lower().replace(' ', '_')
 
     # Get configuration for a crop
     #config = get_crop_configs(crop_name_lower)
     # Get class names for the crop
-    class_map = {1:"Penuomnia",2:"Covid"}#config['class_map']
+    class_map = {0:"TB",1:"Non-TB"}#config['class_map']
 
-    with st.expander("Information about the disease Identification"):
-        st.write(f"**This model is trained to predict these diseases in {crop_name} :**")
-        # Print class names as bullet points
-        for class_id, class_name in class_map.items():
-            st.write(f"- **{class_name.replace('_', ' ').title()}**")
+    # with st.expander("Information about the disease Identification"):
+    #     st.write(f"**This model is trained to predict these diseases in {crop_name} :**")
+    #     # Print class names as bullet points
+    #     for class_id, class_name in class_map.items():
+    #         st.write(f"- **{class_name.replace('_', ' ').title()}**")
 
     st.markdown('<p class="subheader">Upload Image</p>', unsafe_allow_html=True)
-    st.text("ℹ️ Focus on diseased leaves/fruit, keep the area of interest at the center of the image for better results")
+    st.text("ℹ️ Focus on the lungs, keep the area of interest at the center of the image for better results")
 
     # Create a container for the "Upload Image" section
     with st.container(border=True):
@@ -188,8 +188,7 @@ def main():
 
         # Column 2: Select image from selectbox and checkbox for camera input
         with col2:
-            example_images_path = os.path.join('examples', crop_name_lower)
-            image_options = get_image_options(example_images_path)
+            image_options = get_image_options('examples')
             if len(image_options) > 0:
                 selected_image = st.selectbox("Select an Image", image_options, index=None)
             has_camera = st.checkbox("Use Camera Input")
@@ -198,13 +197,13 @@ def main():
     if uploaded_file is not None:
         image = Image.open(uploaded_file)
     elif selected_image is not None:
-        image_path = os.path.join(example_images_path, selected_image)
+        image_path = os.path.join('examples', selected_image)
         image = Image.open(image_path)
     
     elif has_camera:
         camera_image = st.camera_input("Take a Picture", key="camera_input_key")
         if camera_image is not None:
-             image = Image.open(camera_image)
+            image = Image.open(camera_image)
         else:
             st.warning("Please take a picture to proceed or use File Uploader instead.")
             st.stop()
